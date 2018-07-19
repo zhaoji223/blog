@@ -48,7 +48,7 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 **no-store:**       所有内容都不会缓存，强制缓存，对比缓存都不会触发（对于前端开发来说，缓存越多越好，so...基本上和它说886）
 
 ## 对比缓存
-对比缓存，顾名思义，需要进行比较判断是否可以使用缓存。浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。[200/304 网址](https://blog.csdn.net/franknotbad/article/details/79400105)
+对比缓存，顾名思义，需要进行比较判断是否可以使用缓存。浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回304状态码，通知客户端比较成功，可以使用缓存数据。[200/304 网址(windows)](https://blog.csdn.net/franknotbad/article/details/79400105)
 ![contrasting_request](/images/http/cache/contrasting_request.png)
 通过两图的对比，我们可以很清楚的发现，在对比缓存生效时，状态码为304，并且报文大小和请求时间大大减少。原因是，服务端在进行标识比较后，只返回header部分，通过状态码通知客户端使用缓存，不再需要将报文主体部分返回给客户端。
 对于对比缓存来说，缓存标识的传递是我们着重需要理解的，它在请求header和响应header间进行传递，一共分为两种标识传递，接下来，我们分开介绍。**Last-Modified  /  If-Modified-Since**
@@ -59,8 +59,8 @@ Cache-Control 是最重要的规则。常见的取值有private、public、no-ca
 
 <font color=red size=4>If-Modified-Since</font>
 再次请求服务器时，通过此字段通知服务器上次请求时，服务器返回的资源最后修改时间。服务器收到请求后发现有头If-Modified-Since 则与被请求资源的最后修改时间进行比对。
-若资源的最后修改时间大于If-Modified-Since，说明资源又被改动过，则响应整片资源内容，返回状态码200；
-若资源的最后修改时间小于或等于If-Modified-Since，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。
+若最后修改时间较新，说明资源又被改动过，则响应整片资源内容，返回状态码200；
+若最后修改时间较旧，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。
 ![If-Modified-Since](/images/http/cache/If-Modified-Since.png)
 
 <font color=red size=4>Etag  /  If-None-Match（优先级高于Last-Modified  /  If-Modified-Since）</font>
