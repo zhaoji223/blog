@@ -3,6 +3,19 @@ title: Session Cookies Token
 date: 2018-07-27 10:09:46
 tags: [http]
 ---
+### Cookie
+首先我们来看一下浏览器中的cookie是如何工作的。
+每当浏览器向服务器发起http请求的时候，都会检查本地是否有相应的cookie，如果有则添加到请求头中一起发送到服务器端。由此可以看出cookie适合存储那些每次都要发给服务端的内容，比如身份信息,token等。
+
+![cookie](/images/http/cache/cookie.png)
+
+Name列是cookie的名字；Value列是cookie的值；Domain列是cookie的域；Path列是cookie的路径；Expires/Max-Age列是cookie的有效期；Size列是cookie大小；Http列是控制cookie只能通过http请求的方式访问；Secure列控制cookie只能在https下才被发送；SameSite列是限制cookie在不同站点之间是否被传递的，用的比较少。
+
+domain和path组合在一起来控制cookie可以被发送到哪些URL地址。当URL的域名是domain或者其子域名并且路径是path或者其子路径时，请求该URL就会携带cookie信息。举个例子：假设cookie的domain属性设置为.abc.def，path属性设置为/，那么当访问book.abc.def/novel或者music.abc.def或者abc.def/movie的时候都会携带该cookie信息。domain的默认值是当前网页的域名，path的默认值是当前网页的路径。
+
+expires和max-age都可以设置cookie的有效期
+
+HttpOnly属性限制cookie只能通过http请求的方式访问，而不能通过本地js访问(document.cookie获取不到)，可以防止js修改cookie的内容
 
 ### session和cookie
 由于HTTP协议是无状态的协议，所以服务端需要记录用户的状态时，就需要用某种机制来识具体的用户，这个机制就是Session.典型的场景比如购物车，当你点击下单按钮时，由于HTTP协议无状态，所以并不知道是哪个用户操作的，所以服务端要为特定的用户创建了特定的Session，用用于标识这个用户，并且跟踪用户，这样才知道购物车里面有几本书。这个Session是保存在服务端的，有一个唯一标识。在服务端保存Session的方法很多，内存、数据库、文件都有。集群的时候也要考虑Session的转移，在大型的网站，一般会有专门的Session服务器集群，用来保存用户会话，这个时候 Session 信息都是放在内存的，使用一些缓存服务比如Memcached之类的来放 Session。
