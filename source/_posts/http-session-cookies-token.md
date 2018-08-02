@@ -11,7 +11,9 @@ tags: [http]
 
 Name列是cookie的名字；Value列是cookie的值；Domain列是cookie的域；Path列是cookie的路径；Expires/Max-Age列是cookie的有效期；Size列是cookie大小；Http列是控制cookie只能通过http请求的方式访问；Secure列控制cookie只能在https下才被发送；SameSite列是限制cookie在不同站点之间是否被传递的，用的比较少。
 
-domain和path组合在一起来控制cookie可以被发送到哪些URL地址。当URL的域名是domain或者其子域名并且路径是path或者其子路径时，请求该URL就会携带cookie信息。举个例子：假设cookie的domain属性设置为.abc.def，path属性设置为/，那么当访问book.abc.def/novel或者music.abc.def或者abc.def/movie的时候都会携带该cookie信息。domain的默认值是当前网页的域名，path的默认值是当前网页的路径。
+domain和path组合在一起来控制cookie可以被发送到哪些URL地址。当URL的域名是domain或者其子域名并且路径是path或者其子路径时，请求该URL就会携带cookie信息。
+浏览器发出请求时，会根据cookie的domain和path属性确定是否传送cookie信息。
+举个例子：假设cookie的domain属性设置为.abc.def，path属性设置为/，那么当访问book.abc.def/novel或者music.abc.def或者abc.def/movie的时候都会携带该cookie信息。domain的默认值是当前网页的域名，path的默认值是当前网页的路径。
 
 expires和max-age都可以设置cookie的有效期
 
