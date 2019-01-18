@@ -1,7 +1,7 @@
 ---
 title: 鼠标移入事件偏移量属性
 date: 2018-07-19 20:54:47
-tags:
+tags: [event]
 ---
 
 #### event.clientX, event.clientY
