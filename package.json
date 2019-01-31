@@ -9,6 +9,7 @@
         "publish": "hexo generate",
         "start": "hexo server",
         "p": "hexo generate",
+        "g": "hexo generate",
         "s": "hexo server"
     },
     "dependencies": {
