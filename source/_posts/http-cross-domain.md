@@ -41,6 +41,7 @@ tags: [http, cross domain]
 `onBack({"status": true, "user": "admin"})`
 
 2.）jquery ajax：
+jquery在处理jsonp类型的ajax时, (虽然jquery也把jsonp归入了ajax，但其实它们真的不是一回事儿), 自动帮你生成回调函数并把数据取出来供success属性方法来调用
 ```
 $.ajax({
     url: 'http://www.domain2.com:8080/login',
@@ -50,16 +51,8 @@ $.ajax({
     data: {}
 });
 ```
-3.）vue.js：
-```
-this.$http.jsonp('http://www.domain2.com:8080/login', {
-    params: {},
-    jsonp: 'onBack'
-}).then((res) => {
-    console.log(res); 
-})
-```
-后端node.js代码示例：
+
+后端node.js代码示例:
 ```
 var querystring = require('querystring');
 var http = require('http');
@@ -85,8 +78,9 @@ console.log('Server is running at port 8080...');
 只服务端设置Access-Control-Allow-Origin即可，前端无须设置。
 
 // TODO
+简单请求 / 非简单(复杂)请求
 
-简单请求 / 非简单请求
+复杂请求的 CORS 请求，会在正式通信之前，增加一次 HTTP 查询请求，称为"预检"请求,该请求是 option 方法的，通过该请求来知道服务端是否允许跨域请求
 
 #### 代理跨域
 如果我们请求的时候还是用前端的域名，然后有个东西帮我们把这个请求转发到真正的后端域名上，不就避免跨域了吗
@@ -97,10 +91,13 @@ node中间件实现跨域代理，原理大致与nginx相同，都是通过启�
 
 #### window.postMessage() 
 window.postMessage() 方法可以安全地实现跨源通信
+<br>
 
-#### 跨域请求设置withCredentials
-一个项目下面有多个子项目，如主数据项目，pos项目等。主数据项目的域名为www.topmall.com，POS项目的域名为pos.topmall.com。即两个项目的主域名相同，子域名不相同。
+### 总结
+```
+CORS 支持所有类型的 HTTP 请求，是跨域 HTTP 请求的根本解决方案
+JSONP 只支持 GET 请求，JSONP 的优势在于支持老式浏览器，以及可以向不支持 CORS 的网站请求数据。
+不管是 Node 中间件代理还是 nginx 反向代理，主要是通过同源策略对服务器不加限制。
+日常工作中，用得比较多的跨域方案是 cors 和 nginx 反向代理
+```
 
-我们的登陆认证是放在主数据项目的，即进入POS项目如果检测未登陆，是先要调用主数据的一个登陆接口登陆后才可以访问的。这时候跨域问题就出现了，进入POS项目之后跳出登陆框，输入用户名密码请求主数据的http://www.topmall.com/signin 进行登陆，看到返回的response里面也有Set-cookie，但是再次请求POS项目的http://pos.topmall.com/pos/cashier/info 资源时却报错了。调试进去看发现后台获取不到当前登陆的用户，查看请求头发现并没有把登陆时返回的cookies设置到第二次请求的头里面。
-
-这是因为登陆请求的主数据项目与POS项目不属于同一个子域，即存在跨域，跨域请求想要带上cookies必须在请求头里面加上{crossDomain: true, xhrFields: {withCredentials: true}}设置

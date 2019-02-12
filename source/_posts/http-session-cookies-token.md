@@ -65,3 +65,11 @@ cookie绑定到单个域。foo.com域产生的cookie无法被bar.com域读取。
 当然， 如果一个人的token 被别人偷走了， 那我也没办法， 我也会认为小偷就是合法用户， 这其实和一个人的session id 被别人偷走是一样的。
 
 这样一来， 我就不保存session id 了， 我只是生成token , 然后验证token ，  我用我的CPU计算时间获取了我的session 存储空间 ！
+
+
+#### 跨域请求设置withCredentials
+一个项目下面有多个子项目，如主数据项目，pos项目等。主数据项目的域名为www.topmall.com，POS项目的域名为pos.topmall.com。即两个项目的主域名相同，子域名不相同。
+
+我们的登陆认证是放在主数据项目的，即进入POS项目如果检测未登陆，是先要调用主数据的一个登陆接口登陆后才可以访问的。这时候跨域问题就出现了，进入POS项目之后跳出登陆框，输入用户名密码请求主数据的http://www.topmall.com/signin 进行登陆，看到返回的response里面也有Set-cookie，但是再次请求POS项目的http://pos.topmall.com/pos/cashier/info 资源时却报错了。调试进去看发现后台获取不到当前登陆的用户，查看请求头发现并没有把登陆时返回的cookies设置到第二次请求的头里面。
+
+这是因为登陆请求的主数据项目与POS项目不属于同一个子域，即存在跨域，跨域请求想要带上cookies必须在请求头里面加上{crossDomain: true, xhrFields: {withCredentials: true}}设置
