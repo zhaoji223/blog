@@ -50,6 +50,18 @@ if(this.checkIOS()){
 }
 ```
 <br>
+#### IOS 中 input 框的 '撤销键入'
+在IOS 中, 通过 window.DeviceMotionEvent, 监听 手机摇一摇事件时, 会与页面中的input 产生 alert('撤销键入') 的弹框:
+解决方案: 
+- 通过 input输入 并点击确认后, 重新跳转当前页(或者新页面), 跳过'撤销键入'
+- 通过 监听 `WeixinJSBridgeReady` 事件, 来启动加载好的声音
+```
+document.addEventListener("WeixinJSBridgeReady", function () {
+    audio.load();
+    audio.pause();
+}, false);
+```
+
 ### 滚动回弹效果
 
 ![select](/images/mobile/qsc-2019-newyear-select.png)
