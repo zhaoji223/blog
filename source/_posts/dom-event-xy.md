@@ -27,3 +27,18 @@ Chrome下，offsetX offsetY是包含边框的.
 在IE中没有pageX、pageY取而代之的是event.x、evnet.y。x和y在webkit内核下也实现了，所以火狐不支持x，y
 
 ![pageXY](/images/event/pageXY.png)
+
+
+#### offsetTop, offsetWidth 
+`offsetTop` 当前对象到其上级层顶部的间隔,  当前元素dom content 到 父元素 border的距离
+`offsetWidth` dom content + padding + border 的 width
+<br>
+
+#### clientTop , clientWidth
+`clientTop` 一个元素顶部边框的宽度（以像素表示）, 即元素 border-top
+`clientWidth` dom content 的 width
+<br>
+
+#### scrollTop 
+`scrollTop` 一个元素的内容垂直滚动的像素数, 即 页面收起部分的 高度
+<br>
