@@ -27,7 +27,7 @@ tags: algorithms, data structure
 
 
 ##### 补充回顾：JS判断各种数据类型方法
-* 1、typeof
+* 1、操作符 typeof
 ```
 typeof   2                  => number
 typeof   null               => object
@@ -56,10 +56,22 @@ new String('123') instanceof String                 => true
     `对于Number,String,Boolean 需要 new 对应的包装类型才能 == 为 true`
 
     `除了 null 和 undefined之外，所有基本类型都有其对应的包装对象. String 为字符串基本类型。Number 为数值基本类型。Boolean 为布尔基本类型。Symbol 为字面量基本类型`
+    `instanceof  网页存在两个以上不同版本的 Array 构造函数.传入的数组与在第二个框架中原生创建的数组分别具有各自 不同的构造函数.  无法通过instanceof 判定`
+    ```
+    var iframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+    xArray = window.frames[window.frames.length-1].Array;       
+    var arr = new xArray("1","2","3","4","5");
+    //这个写法IE下是不支持的，标准浏览器firefox，chrome下有
+    
+    console.log(arr);  // 打印出 ["1", "2", "3", "4", "5"]
+    console.log(arr instanceof Array); // false 
+    console.log(arr.constructor === Array); // false
+    ```
 
 * 3、constructor
 ```
-{}.constructor === Object;                  =>  true
+({}).constructor === Object;                  =>  true
 [].constructor === Array;                   =>  true
 'abcde'.constructor === String;             =>  true
 (1).constructor === Number;                 =>  true
@@ -111,6 +123,7 @@ Object.prototype.toString.call(document) ;          => [object HTMLDocument]
     那么这两行代码呢？
     `console.log('true' == true)`
     `console.log('true' == false)`
+    `console.log(null == undefine)`
 
 #### 2、栈
 ##### 栈的基本概念
@@ -224,7 +237,7 @@ function PriorityQueue() {
 
 #### 4、链表
 ##### 链表的基本概念
-链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个 元素由一个存储元素本身的节点和一个指向下一个元素的引用(也称指针或链接)组成
+链表存储有序的元素集合(`链表表示的元素的有序并不一定是值得有序，而是逻辑次序上的有序`)，但不同于数组，链表中的元素在内存中并不是连续放置的。每个 元素由一个存储元素本身的节点和一个指向下一个元素的引用(也称指针或链接)组成
 ![linked list](/images/other/linkedList.png)
 `相对于传统的数组，链表的一个好处在于，添加或移除元素的时候不需要移动其他元素。然而，链表需要使用指针，因此实现链表时需要额外注意。数组的另一个细节是可以直接访问任何位置的任何元素，而要想访问链表中间的一个元素，需要从起点(表头)开始迭代列表直到找到 所需的元素`
 `列表最后一个节点的下一个元素始终是null`
@@ -346,7 +359,7 @@ this.insert = function(position, element){
 向双向链表中插入一个新项跟(单向)链表非常类似。区别在于，链表只要控制一个next
 指针，而双向链表则要同时控制next和prev(previous，前一个)这两个指针
 <br>
-##### 双向链表
+##### 循环链表
 循环链表和链表之间唯一的区别在于，最后一个元素指向下一个元素的指针不是引用null， 而是指向第一个元素(head)
 ![linkedList loop](/images/other/linkedList_loop.png)
 <br>
@@ -588,6 +601,7 @@ InsertionSort(arr)
 归并排序是一种分治算法。其思想是将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着将小数组归并成较大的数组，直到最后只有一个排序完毕的大数组`归并数组过程即排序过程`.
 由于是分治法，归并排序也是递归的:
 `时间复杂度O(nlog^n)`
+`如果a的x次方等于N（a>0，且a不等于1），那么数x叫做以a为底N的对数（logarithm），记作x=logaN。其中，a叫做对数的底数，N叫做真数`
 ```
 function　mergeSort(items){
     if(items.length == 1){
@@ -699,7 +713,7 @@ quickSort(arr)
 <br>
 
 #### 6、堆排序
-堆分为两种类型：最大堆、最小堆.`根的值大于或小于左右子树的值 `
+堆分为两种类型：最大堆、最小堆.`根的值大于或小于左右子树的值(左右子树也是如此)`
 顾名思义，就是保证根节点是所有数据中最大/小. 堆总是一棵完全二叉树
 特点: `如果 i 是节点的索引，那么下面的公式就给出了它的父节点和子节点在数组中的位置`
 ```
