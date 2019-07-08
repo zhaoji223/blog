@@ -15,6 +15,7 @@ var timinhObj = performance.timing;
 ```
 
 #### Performance 对象详解
+![performance timing](/images/other/performance.jpeg)
 ```javascript
 // 获取 performance 数据
 var performance = {  
