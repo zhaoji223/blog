@@ -5,7 +5,7 @@ tags:
 ---
 
 ### this指向
-```
+```javascript
 window.val = 1;
 var obj = {
     val: 2,
@@ -31,7 +31,7 @@ obj.prop.getVal();
 ```
 
 
-```
+```javascript
 var name = "The Window";
 var object = {
     name : "My Object",
@@ -46,7 +46,7 @@ var object = {
 object.getNameFunc()()
 ```
 
-```
+```javascript
 var obj = {
   bar: function() {
     var x = () => this;
@@ -79,7 +79,7 @@ console.log(fn2()() === obj);
 ### vue-cli3 
 vue-cli3 与 2 一样, CLI 服务是构建于 webpack 和 webpack-dev-server 之上的, cli3项目内部的 vue-cli-service 插件,提供 serve、build 和 inspect 命令.
 package.json
-```
+```javascript
 vue-cli-service serve     // 启动一个附带模块热重载的开发服务器
 vue-cli-service build     // 会在 dist/ 目录产生一个可用于生产环境的包
 vue-cli-service inspect   // 审查一个 Vue CLI 项目的 webpack config
@@ -87,7 +87,7 @@ vue-cli-service inspect   // 审查一个 Vue CLI 项目的 webpack config
 
 ### 快速原型开发
 vue cli3 提供 `vue serve` 和 `vue build` 命令对单个 *.vue/js 文件进行快速原型开发.不过这需要先额外安装一个全局的扩展:
-```
+```javascript
 npm install -g @vue/cli-service-global
 ```
 
@@ -97,10 +97,10 @@ vue-cli3 通过命令`vue create xx`来创建一个项目. 当然,你也可以�
 ```
 vue ui
 ```
-![management](/images/工程/vue_cli3/management.png)
+![management](/images/other/vue_cli3/management.png)
 
 通过vue ui 管理项目: 
-![dashboard](/images/工程/vue_cli3/dashboard.png)
+![dashboard](/images/other/vue_cli3/dashboard.png)
 
 
 ### vue-cli 3 与 2的区别
@@ -117,7 +117,7 @@ vue-cli3 构建的项目,没有了以前熟悉的 build 目录，也就没有了
 
 ### vue.config.js
 #### 简单的配置方式
-```
+```javascript
 module.exports = {
   configureWebpack: {
     output: {
@@ -134,7 +134,7 @@ module.exports = {
 #### 链式操作(高级)
 Vue CLI 内部的 webpack 配置是通过 webpack-chain 维护的(`需要熟悉 webpack-chain 的 API`)
 例如添加一个loader:
-```
+```javascript
 module.exports = {
   chainWebpack: config => {
     // GraphQL Loader
