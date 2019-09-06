@@ -30,7 +30,7 @@ Chrome下，offsetX offsetY是包含边框的.
 
 
 #### offsetTop, offsetWidth 
-`offsetTop` 当前对象到其上级层顶部的间隔,  当前元素dom content 到 父元素 border的距离
+`offsetTop` 当前对象到其上级层顶部的间隔,  当前元素 到 父元素 border的距离
 `offsetWidth` dom content + padding + border 的 width
 <br>
 

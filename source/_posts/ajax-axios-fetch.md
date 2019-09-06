@@ -10,7 +10,7 @@ tags: ajax
 
 ##### jq ajax
 `$.ajax`是对原生XHR的封装, 为了达到我们跨越的目的, 增添了对JSONP的支持. 经过这么多年的更新维护，不得不承认它已经很成熟，能够满足我们的基本需求，但是随着react,vue新一代框架的兴起，以及ES规范的完善，更多API的更新，它逐渐暴露了自己的不足
-```
+```javascript
 针对MVC的编程设计,不符合现在前端MVVM的趋势.
 基于原生的XHR开发，XHR本身的架构不够清晰.
 JQuery较大，单纯使用ajax却要引入整个JQuery非常的不合理.
@@ -22,14 +22,14 @@ JQuery较大，单纯使用ajax却要引入整个JQuery非常的不合理.
 
 ##### fetch 优点
 参考: [传统ajax意思, fetch永生](https://github.com/camsong/blog/issues/2)
-```
+```javascript
 语法简洁，更加语义化
 基于标准 Promise 实现，支持 async/await
 同构方便，使用 [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch)等
 ```
 
 但是在使用fetch的时候，也会遇到了一些问题：
-```
+```javascript
 fetch只对网络请求报错，对400，500都当做成功的请求，需要封装去处理
 fetch默认不会带cookie，需要添加配置项fetch(url, {credentials: 'include'})
 fetch不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时

@@ -6,7 +6,7 @@ tags: koa node server
 
 ### koa server
 
-```
+``` javascript
 const Koa = require('koa'); // koa2
 const send = require('koa-send') // 获取 静态文件
 const proxy = require('koa-proxies') // 代理

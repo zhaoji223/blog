@@ -12,7 +12,7 @@ tags: 总结
 ###  input 输入框:
 IOS 与 Android 处理软件盘的方式不同, ios 通过scrolltop移动来展示 软键盘; Android 则是通过切割可是区域大小, 来展示软键盘. 所以在处理 键盘弹出, 遮挡屏幕内容时, 需要分别处理
 Android监听 resize 事件:
-```
+```javascript
 window.addEventListener('resize', () => {
     let isAndroid = this.checkAndriod() 
     if (isAndroid) {
@@ -27,7 +27,7 @@ window.addEventListener('resize', () => {
 })
 ```
 IOS监听 input focus 与 blur 事件:
-```
+```javascript
 if(this.checkIOS()){
     let input = document.getElementById('inputName')
     input.addEventListener('focus', () => {
@@ -55,7 +55,7 @@ if(this.checkIOS()){
 解决方案: 
 - 通过 input输入 并点击确认后, 重新跳转当前页(或者新页面), 跳过'撤销键入'
 - 通过 监听 `WeixinJSBridgeReady` 事件, 来启动加载好的声音
-```
+```javascript
 document.addEventListener("WeixinJSBridgeReady", function () {
     audio.load();
     audio.pause();
@@ -74,7 +74,7 @@ document.addEventListener("WeixinJSBridgeReady", function () {
 
 ### Canvas 绘图
  在图片加载成功后, 可以在调用 canvas 绘图方法, 加快canvas 绘图速度
-```
+```javascript
 img.onload = () => {
     this.canvas()
 }
