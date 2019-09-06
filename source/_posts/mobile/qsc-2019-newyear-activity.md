@@ -1,7 +1,7 @@
 ---
 title: qsc-2019-newyear-activity
 date: 2019-01-31 09:57:45
-tags: 总结
+tags: mobile
 ---
 
 ## QSC 2019新年抽签活动 总结

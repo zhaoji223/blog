@@ -14,10 +14,14 @@ highlightjs: vs
 
 #Works
 works:
-- works_name: AAA
-  works_url: /
-- works_name: BBB
-  works_url: /atom.xml
+- works_name: 随笔
+  works_url: /tags/%E9%9A%8F%E7%AC%94/
+- works_name: other
+  works_url: /tags/other/
+- works_name: http
+  works_url: /tags/http/
+- works_name: mobile
+  works_url: /tags/mobile/
 
 #duoshuo name
 duoshuo:
@@ -48,10 +52,14 @@ timeline:
 
 #Links
 links:
-- name: Kieran
-  link: http://go.kieran.top/
-- name: Name
-  link: http://domain.com/
+- name: EL PSY CONGROO | cwj
+  link: https://yo-cwj.com/
+- name: 风之旅人 | 帅神
+  link: https://di1shuai.com/
+- name: Sean
+  link: https://blog.csdn.net/u010416101
+- name: Abel
+  link: https://blog.csdn.net/u012373815
 
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search

@@ -1,7 +1,7 @@
 ---
 title: mock-server
 date: 2019-02-12 14:09:58
-tags: mock, server, express
+tags: mock, server, express, other
 ---
 
 首先安装 express
