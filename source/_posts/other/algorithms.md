@@ -109,14 +109,14 @@ Object.prototype.toString.call(document) ;          => [object HTMLDocument]
     `toString() 是 Object 的原型方法，调用该方法，默认返回当前对象的 [[Class]] 。这是一个内部属性，其格式为 [object Xxx] ，是一个字符串，其中 Xxx 就是对象的类型`
 *  `== 类型转换`    
     使用==时，不同类型的值也可以被看作相等, 以下是不同类型的值用相等操作符比较后的结果
-    ![类型转换](/images/other/==.png)
+    ![类型转换](/images/other/algorithms/==.png)
 
     字符串、布尔值的类型转换 通过toNumber() 转换为数字
     对象 通过toPrimitive() 转换为 字符串或者数字
     `toNumber 对不同类型返回的结果如下:`
-    ![toNumber](/images/other/toNumber.png)
+    ![toNumber](/images/other/algorithms/toNumber.png)
     `toPrimitive 对不同类型返回结果如下:`
-    ![toPrimitive](/images/other/toPrimitive.png)
+    ![toPrimitive](/images/other/algorithms/toPrimitive.png)
     <br>
     首先我们看下面的代码会输出什么?
     `console.log('true' ? true : false)`
@@ -238,7 +238,7 @@ function PriorityQueue() {
 #### 4、链表
 ##### 链表的基本概念
 链表存储有序的元素集合(`链表表示的元素的有序并不一定是值得有序，而是逻辑次序上的有序`)，但不同于数组，链表中的元素在内存中并不是连续放置的。每个 元素由一个存储元素本身的节点和一个指向下一个元素的引用(也称指针或链接)组成
-![linked list](/images/other/linkedList.png)
+![linked list](/images/other/algorithms/linkedList.png)
 `相对于传统的数组，链表的一个好处在于，添加或移除元素的时候不需要移动其他元素。然而，链表需要使用指针，因此实现链表时需要额外注意。数组的另一个细节是可以直接访问任何位置的任何元素，而要想访问链表中间的一个元素，需要从起点(表头)开始迭代列表直到找到 所需的元素`
 `列表最后一个节点的下一个元素始终是null`
 
@@ -318,7 +318,7 @@ this.removeAt = function(position){
 ```
 从列表中移除第一个元素(position === 0)时，要做的就是让head指向列表的第二个元素.
 移除列表的最后一项或者中间某一项时，要做的就是将previous.next和current.next链接起来.这样，当前元素就会被丢弃在计算机内存中，等着被`垃圾回收器清除`
-![linked list](/images/other/linkedList_remove.png)
+![linked list](/images/other/algorithms/linkedList_remove.png)
 <br>
 ##### 在任意位置插入元素
 ```
@@ -355,18 +355,18 @@ this.insert = function(position, element){
 <br>
 ##### 双向链表
 双向链表和普通链表的区别在于，在链表中， 一个节点只有链向下一个节点的链接，而在双向链表中，链接是双向的:一个链向下一个元素， 另一个链向前一个元素
-![linkedList two way](/images/other/linkedList_two_way.png)
+![linkedList two way](/images/other/algorithms/linkedList_two_way.png)
 向双向链表中插入一个新项跟(单向)链表非常类似。区别在于，链表只要控制一个next
 指针，而双向链表则要同时控制next和prev(previous，前一个)这两个指针
 <br>
 ##### 循环链表
 循环链表和链表之间唯一的区别在于，最后一个元素指向下一个元素的指针不是引用null， 而是指向第一个元素(head)
-![linkedList loop](/images/other/linkedList_loop.png)
+![linkedList loop](/images/other/algorithms/linkedList_loop.png)
 <br>
 
 #### 5、树
 树是一种分层数据的抽象模型.一个树结构包含一系列存在父子关系的节点。每个节点都有一个父节点(除了顶部的第一个节点)以及零个或多个子节点
-![tree](/images/other/tree.png)
+![tree](/images/other/algorithms/tree.png)
 `位于树顶部的节点叫作根节点。它没有父节点.至少有一个子节点的节点称为内部节点.没有子元素的节点称叶节点.`
 `树的高度取决于所有节点深度的最大值`
 <br>
@@ -398,16 +398,16 @@ function BinarySearchTree() {
 一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是满二叉树
 * 国外(国际)定义: 
 如果一棵二叉树的结点要么是叶子结点，要么它有两个子结点，这样的树就是满二叉树
-![满二叉树](/images/other/full_binary_tree.png)
+![满二叉树](/images/other/algorithms/full_binary_tree.png)
 <br>
 ##### 完全二叉树
 二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树
-![完全二叉树](/images/other/complete_binary_tree.png)
+![完全二叉树](/images/other/algorithms/complete_binary_tree.png)
 <br>
 ##### 树的遍历
 ##### 中序遍历
 中序遍历是一种先访问左侧节点，在访问节点本身，最后是右侧子节点.
-![tree inOrder](/images/other/tree_inOrder.png)
+![tree inOrder](/images/other/algorithms/tree_inOrder.png)
 `在BST中，中序遍历是从最小到最大的顺序访问所有节点`
 ```
 this.inOrderTraverse = function(callback){
@@ -424,7 +424,7 @@ var inOrderTraverseNode = function (node, callback) {
 <br>
 ##### 先序遍历
 先序遍历是以优先于节点本身的顺序访问每个节点的.即先访问节点本身，再左侧节点，最后访问右侧子节点.
-![tree pre](/images/other/tree_pre.png)
+![tree pre](/images/other/algorithms/tree_pre.png)
 ```
 this.preOrderTraverse = function(callback){
       preOrderTraverseNode(root, callback); 
@@ -440,7 +440,7 @@ var preOrderTraverseNode = function (node, callback) {
 <br>
 ##### 后序遍历
 先序遍历是以优先于后代节点的顺序访问每个节点的.即先访问左侧节点，在访问右侧子节点，最后是节点本身.
-![tree post](/images/other/tree_post.png)
+![tree post](/images/other/algorithms/tree_post.png)
 ```
 this.postOrderTraverse = function(callback){
       postOrderTraverseNode(root, callback); 
@@ -456,7 +456,7 @@ var postOrderTraverseNode = function (node, callback) {
 <br>
 ##### 自平衡树
 随着添加的节点数增加，树的一条边可能会非常深。也就是说，树的一条分支会有很多层，而其他的分支却只有几层。移除和搜索某个节点时引起一些性能问题。AVL树是一种自平衡二叉搜索树，意思是任何一个节点左右两侧子树的高度之差最多为1。`也就是说这种树会在添加或移除节点时，会计算出每个节点左右两侧子树的高度来作为计算平衡因子，对树进行旋转平衡(旋转分多种方式选中，下图为其中的一种)`
-![tree pre](/images/other/tree_translate.png)
+![tree pre](/images/other/algorithms/tree_translate.png)
 `红黑树也是自平衡二叉树的一种`
 <br>
 #### 6、字典、散列表(哈希表)
@@ -465,23 +465,23 @@ var postOrderTraverseNode = function (node, callback) {
 ##### 散列表(哈希表)
 `要在数据结构中获得一个值(使用get方法)，需要遍历整个数据结构来找到它。如果使用散列函数，就知道值的具体位置，因此能够快速检索到该值。散列函数的作用是给定一个键值，然后返回值在表中的地址`
 `哈希表也称为散列表, 是根据关键字值（key value）而直接进行访问的数据结构。也就是说，它通过把关键字值映射到一个位置来访问记录，以加快查找的速度。这个映射函数称为哈希函数（也称为散列函数），映射过程称为哈希化，存放记录的数组叫做散列表`
-![hash](/images/other/hash.png)
+![hash](/images/other/algorithms/hash.png)
 <br>
 ##### 散列冲突(哈希冲突)
 有时候，一些键会有相同的散列值。不同的值在散列表中对应相同位置的时候，我们称其为冲突。因此，当这种情况发生的时候就要去解决它。处理冲突有几种方法:`分离链接`、`线性探查`
 * `分离链接`
     分离链接法包括为散列表的每一个位置创建一个链表并将元素存储在里面。它是解决冲突的最简单的方法，但是需要额外的存储空间
-    ![hash linkedList](/images/other/hash_linkedList.png)
+    ![hash linkedList](/images/other/algorithms/hash_linkedList.png)
     <br>
 * `线性探查`
     当想向表中某个位置加入一个新元素的时候，如果索引 为index的位置已经被占据了，就尝试index+1的位置。如果index+1的位置也被占据了，就尝试 index+2的位置，以此类推
-    ![hash line](/images/other/hash_line.png)
+    ![hash line](/images/other/algorithms/hash_line.png)
     `在一些编程语言中，我们需要定义数组的大小。如果使用线性探查的话，需要注意的一个问题是数组的可用位置可能会被用完。在JavaScript中，我们不需要担心这个问题，因为我们不需要定义数组的大小，它可以根据需要自动改变大小————这是JavaScript内置的一个功能`
 
 <br>
 #### 7、图
 图是网络结构的抽象模型。图是一组由边连接的节点(或顶点).
-![graph](/images/other/graph.png)
+![graph](/images/other/algorithms/graph.png)
     `由一条边连接在一起的顶点称为相邻顶点.`
     `一个顶点的度是其相邻顶点的数量.`
     `路径是顶点v1, v2,...,vk的一个连续序列，其中vi和vi+1是相邻的.其中包含路径A B E I和A C D G`
@@ -490,10 +490,10 @@ var postOrderTraverseNode = function (node, callback) {
 图遍历算法的思想是必须追踪每个第一次访问的节点，并且追踪有哪些节点还没有被完全探索.
 *  `广度优先搜索(Breadth-First Search，BFS)`
     广度优先搜索算法会从指定的第一个顶点开始遍历图，先访问其所有的相邻点，就像一次访问图的一层。换句话说，就是先宽后深地访问顶点
-    ![graph](/images/other/graph_bfs.png)
+    ![graph](/images/other/algorithms/graph_bfs.png)
 * `深度优先搜索(Depth-First Search，DFS)`
     深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径直到这条路径最后一个顶点被访问了，接着原路回退并探索下一条路径。换句话说，它是先深度后广度地访问顶点
-    ![graph](/images/other/graph_dfs.png)
+    ![graph](/images/other/algorithms/graph_dfs.png)
 
 ### 常见排序算法
 * 冒泡排序
@@ -525,7 +525,7 @@ var swap = function(array, index1, index2){
 var arr = [3, 5, 1, 6, 4, 7, 2]
 bubbleSort(arr)
 ```
-![bubbleSort](/images/other/bubbleSort.png)
+![bubbleSort](/images/other/algorithms/bubbleSort.png)
 
 ##### 改进后的冒泡算法
 如果从内循环减去外循环中已跑过的轮数，就可以避免内循环中所有不必要的比较
@@ -572,7 +572,7 @@ function SelectionSort(arr) {
 var arr = [3, 5, 1, 6, 4, 7, 2]
 SelectionSort(arr)
 ```
-![selectSort](/images/other/selectSort.png)
+![selectSort](/images/other/algorithms/selectSort.png)
 <br>
 
 #### 3、插入排序
@@ -594,7 +594,7 @@ function InsertionSort(arr) {
 var arr = [3, 5, 1, 6, 4, 7, 2]
 InsertionSort(arr)
 ```
-![insertionSort](/images/other/insertionSort.png)
+![insertionSort](/images/other/algorithms/insertionSort.png)
 <br>
 
 #### 4、归并排序
@@ -627,7 +627,7 @@ function　merge(left, right){
 var arr = [3, 5, 1, 6, 4, 7, 2]
 mergeSort(arr)
 ```
-![mergeSort](/images/other/mergeSort.png)
+![mergeSort](/images/other/algorithms/mergeSort.png)
 <br>
 
 #### 5、快速排序
@@ -724,14 +724,14 @@ right(i)  = 2i + 2
 ##### 转换为最大/小堆
 首先需要一个操作来实现这个交换过程，这就是上浮: 从当前结点开始，和它的父亲节点比较，若是比父亲节点来的小，就交换，然后将当前询问的节点下标更新为原父亲节点下标；否则退出
 上浮操作中，只能保证最大/小值上浮到根节点, 无法保证子树的根节点也是最大/小值，此时需要下沉操作: 让当前结点的左右儿子(如果有的话)作比较，哪个比较小就和它交换，并更新询问节点的下标为被交换的儿子节点下标，否则退出。
-![heap up down](/images/other/heap_up_down.png)
+![heap up down](/images/other/algorithms/heap_up_down.png)
 <br>
 ##### 堆排序思想
 1、堆排序首先把无序数组转换为最大/小堆, 然后利用最大/小堆的性质(`根的值大于或小于左右子树的值 `),
 2、让根节点元素和尾节点进行交换，然后让剩下的数组元素中的根元素下沉(即重新完成一个最大/小堆转换). 
 3、然后重复2，完成堆排序
 
-![heapify](/images/other/heapify.png)
+![heapify](/images/other/algorithms/heapify.png)
 <br>
 * 递归堆排序:
 ```
