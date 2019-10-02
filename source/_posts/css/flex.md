@@ -9,8 +9,7 @@ tags: layout, flex
 <br>
 
 flex 概念图
-![flex concept](/images/css/flex_concept.png)
-
+![flex concept](http://pyqqincie.bkt.clouddn.com/flex_concept.png)
 使用flex布局的容器（flex container），它内部的元素自动成为flex项目（flex item）。容器拥有两根隐形的轴，水平的主轴（main axis），和竖直的交叉轴。主轴开始的位置，即主轴与右边框的交点，称为main start；主轴结束的位置称为main end；交叉轴开始的位置称为cross start；交叉轴结束的位置称为cross end。item按主轴或交叉轴排列，item在主轴方向上占据的宽度称为main size，在交叉轴方向上占据的宽度称为cross size。
 
 此外，需注意使用flex容器内元素，即flex item的float，clear、vertical-align属性将失效
@@ -62,7 +61,7 @@ flex 概念图
 
 　　　　　　space-around：沿轴线均匀分布
 
-![justify-content](/images/css/flex_justify_content.png)
+![justify-content](http://pyqqincie.bkt.clouddn.com/flex_justify_content.png)
 
 <br>
 
@@ -80,7 +79,7 @@ flex 概念图
 
 　　　　stretch：当item未设置高度时，item将和容器等高对齐
 
-![align-items](/images/css/flex_align_items.png)
+![align-items](http://pyqqincie.bkt.clouddn.com/flex_align_items.png)
 <br>
 
 `align-content`
@@ -99,7 +98,7 @@ flex 概念图
 
 　　　　　　stretch：各行将根据其flex-grow值伸展以充分占据剩余空间
 
-![align-content](/images/css/flex_align_content.png)
+![align-content](http://pyqqincie.bkt.clouddn.com/flex_align_content.png)
 <br>
 
 ### item 属性
@@ -124,7 +123,7 @@ order的值是整数，默认为0，整数越小，item排列越靠前(`与元�
 
 表示项目在主轴上占据的空间
 
-![flex-basis](/images/css/flex_basis.png)
+![flex-basis](http://pyqqincie.bkt.clouddn.com/flex_basis.png)
 <br>
 
 `flex`
@@ -149,4 +148,4 @@ flex属性是flex-grow、flex-shrink和flex-basis三属性的简写总和
 
 　　　　　　stretch：当item未设置高度时，item将和容器等高对齐
 
-![align-self](/images/css/flex_align_self.png)
+![align-self](http://pyqqincie.bkt.clouddn.com/flex_align_self.png)

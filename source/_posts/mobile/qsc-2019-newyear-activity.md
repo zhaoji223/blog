@@ -7,7 +7,7 @@ tags: mobile
 ## QSC 2019新年抽签活动 总结
 
 ### 图片压缩 [TinyPNG](https://tinypng.com/),  减少访问资源大小, 缩短访问加载时间
-![select](/images/mobile/qsc-2019-newyear-form.png)
+![select](http://pyqqincie.bkt.clouddn.com/qsc-2019-newyear-form.png)
 <br>
 ###  input 输入框:
 IOS 与 Android 处理软件盘的方式不同, ios 通过scrolltop移动来展示 软键盘; Android 则是通过切割可是区域大小, 来展示软键盘. 所以在处理 键盘弹出, 遮挡屏幕内容时, 需要分别处理
@@ -64,7 +64,7 @@ document.addEventListener("WeixinJSBridgeReady", function () {
 
 ### 滚动回弹效果
 
-![select](/images/mobile/qsc-2019-newyear-select.png)
+![select](http://pyqqincie.bkt.clouddn.com/qsc-2019-newyear-select.png)
 -webkit-overflow-scrolling 属性控制元素在移动设备上是否使用滚动回弹效果.
 或者 使用插件实现, 例如: `better-picker`
 <br>
@@ -79,7 +79,7 @@ img.onload = () => {
     this.canvas()
 }
 ```
-![canvas](/images/mobile/qsc-2019-newyear-canvas.jpeg)
+![canvas](http://pyqqincie.bkt.clouddn.com/qsc-2019-newyear-canvas.jpeg)
 <br>
 
 ### media query

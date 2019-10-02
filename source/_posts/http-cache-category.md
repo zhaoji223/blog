@@ -31,7 +31,7 @@ webkit作为一个开源的浏览器引擎，其资源分类主要分为两大�
 再进来-> 200(from disk cache) -> 刷新 -> 200(from memory cache)
 
 #### chrome采取措施的准则
-![统计表](/images/http/cache/storage_category.png)
+![统计表](http://pyqqincie.bkt.clouddn.com/cache/storage_category.png)
 
 ## FireFox 浏览器
 以上的数据及统计都是在chrome浏览器下进行的

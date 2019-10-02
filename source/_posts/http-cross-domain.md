@@ -16,7 +16,7 @@ tags: [http, cross domain]
 **3.) AJAX 请求不能发送**
 
 #### 常见跨域场景
-![cross domain](/images/http/cross-domain/cross-domain.png)
+![cross domain](http://pyqqincie.bkt.clouddn.com/cross-domain.png)
 
 ## 跨域正确的打开方式
 

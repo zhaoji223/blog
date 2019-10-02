@@ -97,10 +97,10 @@ vue-cli3 通过命令`vue create xx`来创建一个项目. 当然,你也可以�
 ```
 vue ui
 ```
-![management](/images/other/vue_cli3/management.png)
+![management](http://pyqqincie.bkt.clouddn.com/management.png)
 
 通过vue ui 管理项目: 
-![dashboard](/images/other/vue_cli3/dashboard.png)
+![dashboard](http://pyqqincie.bkt.clouddn.com/dashboard.png)
 
 
 ### vue-cli 3 与 2的区别

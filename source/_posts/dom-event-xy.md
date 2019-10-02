@@ -20,13 +20,13 @@ Chrome下，offsetX offsetY是包含边框的.
 而IE、FF是不包含边框的，如果鼠标进入到border区域，为返回负值.
 <br>
 
-![offset/client/screenXY](/images/event/offset_client_screenX.png)
+![offset/client/screenXY](http://pyqqincie.bkt.clouddn.com/offset_client_screenX.png)
 
 #### event.pageX, event.pageY
 出当浏览器没有滚动条时（可视窗口与文档窗口重合），pageX与clientX相等，pageX与clientY相等，如果出现下拉滚动条并向下拉动滚动条，文档窗口向上滚动，如果出现左右滑动的滚动条并向右拉动滚动条，文档窗口向左滚动，在文档窗口滚动的情况下，pageX>=clientX, pageY>=clientY
 在IE中没有pageX、pageY取而代之的是event.x、evnet.y。x和y在webkit内核下也实现了，所以火狐不支持x，y
 
-![pageXY](/images/event/pageXY.png)
+![pageXY](http://pyqqincie.bkt.clouddn.com/pageXY.png)
 
 
 #### offsetTop, offsetWidth 

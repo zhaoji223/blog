@@ -7,7 +7,7 @@ tags: [http]
 首先我们来看一下浏览器中的cookie是如何工作的。
 每当浏览器向服务器发起http请求的时候，都会检查本地是否有相应的cookie，如果有则添加到请求头中一起发送到服务器端。由此可以看出cookie适合存储那些每次都要发给服务端的内容，比如身份信息,token等。
 
-![cookie](/images/http/cache/cookie.png)
+![cookie](http://pyqqincie.bkt.clouddn.com/cookie.png)
 
 Name列是cookie的名字；Value列是cookie的值；Domain列是cookie的域；Path列是cookie的路径；Expires/Max-Age列是cookie的有效期；Size列是cookie大小；Http列是控制cookie只能通过http请求的方式访问；Secure列控制cookie只能在https下才被发送；SameSite列是限制cookie在不同站点之间是否被传递的，用的比较少。
 

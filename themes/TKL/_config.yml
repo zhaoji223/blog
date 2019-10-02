@@ -16,6 +16,8 @@ highlightjs: vs
 works:
 - works_name: 随笔
   works_url: /tags/%E9%9A%8F%E7%AC%94/
+- works_name: book
+  works_url: /tags/book/
 - works_name: other
   works_url: /tags/other/
 - works_name: http
