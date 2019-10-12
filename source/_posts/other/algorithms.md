@@ -1,7 +1,7 @@
 ---
 title: 常见数据结构与算法
 date: 2019-04-19 09:54:40
-tags: algorithms, data structure, other
+tags: [algorithms, data structure, other]
 ---
 
 ### 数据结构

@@ -1,7 +1,7 @@
 ---
 title: ajax-axios-fetch
 date: 2019-02-11 18:09:05
-tags: ajax, http
+tags: [ajax, http]
 ---
 
 ### ajax

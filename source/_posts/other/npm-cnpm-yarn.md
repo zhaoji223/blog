@@ -1,7 +1,7 @@
 ---
 title: npm-cnpm-yarn
 date: 2019-02-11 16:12:33
-tags: npm, other
+tags: [npm, other]
 ---
 
 ### npm
